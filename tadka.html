@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: rgb(249, 222, 249);
+    }
+
+    * {
+        margin: 0;
+    }
+
+    .stack-area {
+        width: 100%;
+        height: 450vh;
+        display: flex;
+    }
+
+    .left,
+    .right {
+        /* border: 4px dashed forestgreen; */
+        flex-basis: 50%;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .right>div {
+        padding: 2rem;
+    }
+
+
+    .card {
+        height: 350px;
+        width: 350px;
+        border-radius: 25px;
+        position: absolute;
+        /* top: calc(50% -175px);
+        left: calc(50% -175px); */
+        margin: 25%;
+
+
+
+        transition: 0.5s ease-in-out;
+    }
+</style>
+
+<body>
+
+    <div class="stack-area">
+        <div class="left">
+            <div style="width: 50%;">
+                <p style="font-size: 480%; font-style: italic;">Our Features</p>
+                <br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem est dicta cupiditate, mollitia
+                    quisquam unde molestiae quas harum consectetur eligendi sit aut nisi magni maiores laboriosam, rem
+                    ipsum maxime id deleniti excepturi! Dicta placeat nisi rerum incidunt impedit.</p>
+            </div>
+        </div>
+
+
+        <div class="right">
+            <div class="card" style="background-color: #407aff;">content1</div>
+            <div class="card" style="background-color: blueviolet;">content2</div>
+            <div class="card" style="background-color: yellowgreen;">content3</div>
+            <div class="card" style="background-color: yellow;">content4</div>
+            <div class="card" style="background-color: green;">content5</div>
+            <div class="card" style="background-color: goldenrod;">content6</div>
+            <div class="card" style="background-color: grey;">content7</div>
+        </div>
+    </div>
+
+    <script>
+        let cards = document.querySelectorAll(".card")
+        function rotateCards() {
+            let angle = 0;
+            cards.forEach((card, index) => {
+
+                if (card.classList.contains("away")) {
+                    card.style.transform = `translatey(-120vh) rotate(-48deg)`;
+                } else {
+                    card.style.transform = `rotate(${angle}deg)`;
+                    angle = angle - 10;
+                    card.style.zIndex = cards.length - index;
+                }
+            })
+        }
+        rotateCards();
+
+        let stackArea = document.querySelector(".stack-area");
+        window.addEventListener("scroll", () => {
+
+            let distance = window.innerHeight / 2
+
+            let topVal = stackArea.getBoundingClientRect().top;
+            let index = -1 * (topVal / distance + 1);
+            index = Math.floor(index);
+            for (i = 0; i < cards.length; i++) {
+                if (i <= index) {
+                    cards[i].classList.add("away");
+                } else {
+                    cards[i].classList.remove("away")
+                }
+            }
+            rotateCards();
+        })
+    </script>
+</body>
+
+</html>
+
+
