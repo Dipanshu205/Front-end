@@ -6,7 +6,6 @@ body {
     color: #fff;
     font-family:'Poppins', sans-serif;
 }
-
 .banner {
     display: flex;
     justify-content: center;
@@ -14,12 +13,10 @@ body {
     height: 100vh;
     position: relative;
 }
-
 .banner .content .title {
     /* font-family: 'Hallowed Ground'; */
-    font-size: 6rem;
+    font-size: 9rem;
 }
-
 .banner::before {
     content: '';
     position: absolute;
@@ -28,4 +25,9 @@ body {
     background-size: cover;
     background-position: center;
     z-index: -1;
+
+    /* mask-image: url("https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTA4L3Jhd3BpeGVsX29mZmljZV8zMl9waG90b19vZl9pbmtfc3BsYXR0ZXJfc3BsYXNoX2VmZmVjdF9pc29sYXRlZF80YmRhNzJlZi0zYzM3LTQ5NGQtYjI5Zi00NjQ5ZjkwZTM3MGFfMS5wbmc.png"); */
+    mask-image: url(ink_lv2.gif);
+    mask-size: cover;
+    mask-position: center;
 }
