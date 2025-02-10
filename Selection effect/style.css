@@ -1,0 +1,32 @@
+body {
+    background-color: rgb(37, 35, 35);
+    margin: 0;
+    padding: 0;
+}
+.list {
+    display: flex;
+    flex-wrap: nowrap;
+    min-width: 240px;
+    height: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 0.5rem;
+    /* gap: 2%; */
+    scroll-snap-type: x mandatory;
+    justify-content: center;
+}
+
+/* .list > * {
+    scroll-snap-align: start;
+} */
+
+.item{
+    
+}
+
+.item img{
+    height: 40vh;
+    width: 9vw;
+    /* margin: 6px; */
+    min-width: 90px;
+}
